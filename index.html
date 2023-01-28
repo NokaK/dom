@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+    <h1>Hello</h1>
+    <h2>hello2</h2>
+    <h2>hello22</h2>
+
+
+    <div id="wrapper">
+
+    </div>
+
+    <div id="form">
+        <input type="number" id="income">
+        <input type="number" id="expense">
+        <button id="calculate">calculate profit</button>
+        <p id="profit"></p>
+    </div>
+
+
+    <ul id="list">
+
+    </ul>
+
+    <script>
+        const income = document.getElementById('income');
+        const expense = document.getElementById('expense');
+        const calculate = document.getElementById('calculate');
+        const profit = document.getElementById('profit');
+
+        let incomeValue;
+        let expenseValue;
+
+
+        income.addEventListener('input', (e) => {
+            incomeValue = e.target.value;
+        })
+
+        expense.addEventListener('input', (e) => {
+            expenseValue = e.target.value;
+        })
+
+        let arr = []
+
+        calculate.addEventListener('click', () => {
+            let profitValue = incomeValue - expenseValue
+            profit.textContent = profitValue
+            arr.push(profitValue)
+            console.log(arr)
+        })
+
+
+
+        let persons = [
+            'nana', 'ana', 'giorgi', 'lasha', 'shota', 'ana'
+        ]
+
+        const list = document.getElementById('list')
+
+
+        for (let index = 0; index < persons.length; index++) {
+            const element = persons[index];
+            const li = document.createElement('li')
+            li.textContent = element
+            list.appendChild(li)
+        }
+
+
+        // console.log(document.querySelector('h2'))
+
+        const wrapper = document.getElementById("wrapper")
+        // wrapper.style.width = '400px'
+        // wrapper.style.height = '400px'
+        // wrapper.style.backgroundColor = 'pink'
+        wrapper.classList.add('wrapper-item')
+        wrapper.textContent = 'this is wrapper'
+
+
+        const childElement = document.createElement('p')
+        childElement.textContent = 'this is child content';
+        childElement.style.fontSize = '40px';
+        childElement.style.backgroundColor = 'grey'
+
+        const childSpan = document.createElement('span')
+        childSpan.textContent = 'this is span'
+        childSpan.style.backgroundColor = 'green'
+
+        childElement.appendChild(childSpan)
+        wrapper.appendChild(childElement)
+
+
+        wrapper.addEventListener('mouseover', () => {
+            wrapper.style.backgroundColor = 'red'
+        })
+
+        wrapper.addEventListener('mouseout', () => {
+            wrapper.style.backgroundColor = 'blue'
+        })
+
+
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>
